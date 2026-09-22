@@ -122,20 +122,17 @@ export function BookingTrigger({
   className,
   children,
   onClick,
-  serviceId,
 }: {
   className?: string
   children: ReactNode
   onClick?: () => void
-  serviceId?: string
 }) {
-  const { openBookingModal, setService } = useBooking()
+  const { openBookingModal } = useBooking()
   return (
     <button
       type="button"
       className={className}
       onClick={() => {
-        if (serviceId) setService(serviceId)
         onClick?.()
         openBookingModal()
       }}

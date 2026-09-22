@@ -1,10 +1,17 @@
 export type ServiceTheme = 'dark' | 'photo' | 'photoAlt' | 'light'
 
+export type PriceTier = {
+  label: string
+  price: string
+}
+
 export type ServiceItem = {
   id: string
   theme: ServiceTheme
   image: string
   imagePosition?: string
+  priceFrom: string
+  tiers: PriceTier[]
   includes: string[]
   note?: string
 }
@@ -14,6 +21,13 @@ export const SERVICES: ServiceItem[] = [
     id: 'standard',
     theme: 'photo',
     image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=900&q=80',
+    priceFrom: 'from $120',
+    tiers: [
+      { label: '1 bed / 1 bath', price: 'from $120' },
+      { label: '2 bed / 1–2 bath', price: 'from $150' },
+      { label: '3 bed / 2 bath', price: 'from $200' },
+      { label: '4 bed / 2+ bath', price: 'from $250' },
+    ],
     includes: [
       'Dusting accessible surfaces',
       'Vacuuming carpets and sweeping floors',
@@ -25,12 +39,19 @@ export const SERVICES: ServiceItem[] = [
       'Trash removal',
       'Bed making upon request',
     ],
-    note: 'Ideal for weekly, biweekly, or monthly maintenance. Quote based on home size and condition.',
+    note: 'Ideal for weekly, biweekly, or monthly maintenance.',
   },
   {
     id: 'deep',
     theme: 'dark',
     image: 'https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=900&q=80',
+    priceFrom: 'from $200',
+    tiers: [
+      { label: '1 bed / 1 bath', price: 'from $200' },
+      { label: '2 bed / 1–2 bath', price: 'from $280' },
+      { label: '3 bed / 2 bath', price: 'from $350' },
+      { label: '4 bed / 2+ bath', price: 'from $450' },
+    ],
     includes: [
       'Everything in standard cleaning',
       'Detailed baseboards, doors, and handles',
@@ -41,12 +62,19 @@ export const SERVICES: ServiceItem[] = [
       'Corners, edges, and hard-to-reach spots',
       'Light fixtures, frames, and decor dusting',
     ],
-    note: 'We recommend starting recurring service with a deep clean. Exact price confirmed after we review the scope.',
+    note: 'We recommend starting recurring service with a deep clean.',
   },
   {
     id: 'move',
     theme: 'photoAlt',
     image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80',
+    priceFrom: 'from $220',
+    tiers: [
+      { label: '1 bed / 1 bath', price: 'from $220' },
+      { label: '2 bed / 1–2 bath', price: 'from $320' },
+      { label: '3 bed / 2 bath', price: 'from $420' },
+      { label: '4 bed / 2+ bath', price: 'from $550' },
+    ],
     includes: [
       'Everything in deep cleaning',
       'Inside kitchen cabinets and drawers',
@@ -57,12 +85,19 @@ export const SERVICES: ServiceItem[] = [
       'Detailed floor care in every room',
       'Final walkthrough quality check',
     ],
-    note: 'Add-ons available: interior windows, garage, balcony, or carpet care — included in your quote when needed.',
+    note: 'Add-ons: interior windows, garage, balcony, or carpet cleaning.',
   },
   {
     id: 'laundry',
     theme: 'light',
     image: 'https://images.unsplash.com/photo-1556912173-46c336c7fd55?auto=format&fit=crop&w=900&q=80',
+    priceFrom: 'from $280',
+    tiers: [
+      { label: '2 bed / 1–2 bath', price: 'from $280' },
+      { label: '3 bed / 2 bath', price: 'from $350' },
+      { label: '4 bed / 2+ bath', price: 'from $450' },
+      { label: '5+ bedrooms', price: 'custom quote' },
+    ],
     includes: [
       'Full standard clean of all rooms',
       'Kitchen and bathroom detail',
@@ -73,7 +108,7 @@ export const SERVICES: ServiceItem[] = [
       'Sort and place items in rooms or baskets',
       'Linen change upon request',
     ],
-    note: 'Laundry volume is confirmed with you and priced into your custom quote.',
+    note: 'Includes up to 2 washer loads. Additional loads from $20 each.',
   },
 ]
 
