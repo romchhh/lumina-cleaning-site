@@ -1,0 +1,47 @@
+.brand {
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 1.05;
+}
+
+.word {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sub {
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-muted);
+}
+
+.header .word {
+  font-size: 22px;
+}
+
+.dark .sub {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.light .sub {
+  color: var(--color-muted);
+}
+
+.footer .word {
+  font-size: clamp(28px, 4vw, 36px);
+}
+
+.footer .sub {
+  margin-top: 2px;
+}
+
+@media (max-width: 480px) {
+  .header .word {
+    font-size: 18px;
+  }
+}

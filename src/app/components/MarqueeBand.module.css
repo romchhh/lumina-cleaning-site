@@ -1,0 +1,47 @@
+.wrap {
+  overflow: hidden;
+  background: var(--white);
+  border-block: 1px solid rgba(37, 99, 235, 0.1);
+  padding: 14px 0;
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  gap: 48px;
+  animation: marquee 32s linear infinite;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: var(--text-md);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-body);
+  white-space: nowrap;
+}
+
+.spark {
+  font-size: 14px;
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: sparkPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes sparkPulse {
+  0%, 100% { opacity: 0.45; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track { animation: none; flex-wrap: wrap; width: 100%; justify-content: center; }
+}
