@@ -8,7 +8,7 @@ import { getServiceById } from '../../data/siteContent'
 import styles from './ServiceModal.module.css'
 
 export default function ServiceModal() {
-  const { activeServiceId, closeServiceModal } = useBooking()
+  const { activeServiceId, closeServiceModal, setService } = useBooking()
   const dialogRef = useRef<HTMLDivElement>(null)
   const service = activeServiceId ? getServiceById(activeServiceId) : null
   const copy = activeServiceId ? SERVICE_COPY[activeServiceId] : null
@@ -20,6 +20,7 @@ export default function ServiceModal() {
   if (!service || !copy) return null
 
   const handleBook = () => {
+    setService(service.id)
     closeServiceModal()
     scrollToBooking()
   }
@@ -45,7 +46,7 @@ export default function ServiceModal() {
             </svg>
           </button>
           <div className={styles.headerText}>
-            <span className={styles.priceTag}>{service.priceFrom}</span>
+            <span className={styles.priceTag}>{t.serviceModal.quote}</span>
             <h2 id="service-modal-title" className={styles.title}>{copy.title}</h2>
           </div>
         </div>
@@ -57,16 +58,9 @@ export default function ServiceModal() {
               {service.includes.map((item) => <li key={item}>{item}</li>)}
             </ul>
           </div>
-          <div>
-            <h3 className={styles.sectionTitle}>{t.serviceModal.prices}</h3>
-            <div className={styles.tiers}>
-              {service.tiers.map((tier) => (
-                <div key={tier.label} className={styles.tierRow}>
-                  <span className={styles.tierLabel}>{tier.label}</span>
-                  <span className={styles.tierPrice}>{tier.price}</span>
-                </div>
-              ))}
-            </div>
+          <div className={styles.quoteBox}>
+            <h3 className={styles.sectionTitle}>{t.serviceModal.quote}</h3>
+            <p className={styles.quoteText}>{t.serviceModal.quoteText}</p>
           </div>
           {service.note && <p className={styles.note}>{service.note}</p>}
         </div>

@@ -84,7 +84,7 @@ export default function ServicesSection() {
                   key={service.id}
                   className={`${styles.serviceCard} ${THEME_CLASS[service.theme]}`}
                 >
-                  <div className={styles.servicePriceTag}>{service.priceFrom}</div>
+                  <div className={styles.servicePriceTag}>{t.prices.quoteBadge}</div>
                   <div className={styles.serviceMedia}>
                     <Image
                       src={service.image}

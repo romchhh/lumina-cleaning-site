@@ -20,7 +20,7 @@ export const SERVICE_COPY: Record<string, { title: string; description: string }
 export const t = {
   nav: {
     services: 'Services',
-    prices: 'Pricing',
+    prices: 'Packages',
     areas: 'Areas',
     about: 'About',
     faq: 'FAQ',
@@ -119,15 +119,46 @@ export const t = {
     ] as const,
   },
   prices: {
-    eyebrow: 'Pricing',
-    titleBefore: 'Honest ',
-    titleEm: 'rates',
-    lead: 'Starting prices by home size. We\'ll confirm your exact quote after a quick intake.',
-    book: 'Book now',
-    note: 'Add-ons available: interior windows, garage, balcony, carpet spot treatment.',
-    accentTitle: 'First-time client?',
-    accentSub: 'Start with a deep clean for the best baseline before recurring service.',
-    accentBtn: 'Book deep clean',
+    eyebrow: 'How it works',
+    titleBefore: 'Pick your ',
+    titleEm: 'clean',
+    lead: 'Choose the package that fits your home. Final pricing depends on size, condition, and scope — we confirm a clear quote before we start.',
+    book: 'Get a quote',
+    quoteBadge: 'Custom quote',
+    note: 'Tell us your home size and what you need. We\'ll estimate the work and send an exact price — no surprises.',
+    plans: [
+      {
+        id: 'standard',
+        title: 'Standard Cleaning',
+        text: 'Regular upkeep to keep everyday spaces fresh and tidy.',
+        highlights: [
+          'Dusting, vacuum & mop',
+          'Kitchen & bathrooms',
+          'Ideal for weekly or biweekly',
+        ],
+      },
+      {
+        id: 'deep',
+        title: 'Deep Cleaning',
+        text: 'A thorough reset for first visits, seasons, or after a long break.',
+        highlights: [
+          'Everything in standard',
+          'Baseboards, grout & detail',
+          'Best first-time baseline',
+        ],
+        featured: true,
+      },
+      {
+        id: 'move',
+        title: 'Move-In / Move-Out',
+        text: 'Empty-home detail so keys change hands with confidence.',
+        highlights: [
+          'Cabinets, fridge & oven',
+          'Closets, shelves & floors',
+          'Final walkthrough check',
+        ],
+      },
+    ] as const,
   },
   areas: {
     eyebrow: 'Coverage',
@@ -159,7 +190,7 @@ export const t = {
       { q: 'How long does a standard clean take?', a: 'Typically 2–4 hours depending on home size and condition. Deep and move-out cleans may take longer.' },
       { q: 'What\'s the difference between standard and deep cleaning?', a: 'Standard covers regular upkeep. Deep cleaning adds detail work like baseboards, grout, appliance exteriors, and hard-to-reach spots.' },
       { q: 'Can I book recurring service?', a: 'Absolutely. Weekly, biweekly, and monthly plans are available. We recommend starting with a deep clean for best results.' },
-      { q: 'How is the laundry add-on priced?', a: 'The cleaning + laundry package includes up to 2 washer loads. Additional loads start at $20 each.' },
+      { q: 'How do you price laundry with cleaning?', a: 'Share how many loads and your home size when you request a quote — we\'ll include laundry in your custom estimate.' },
     ] as const,
   },
   ctaBanner: {
@@ -171,8 +202,9 @@ export const t = {
   },
   serviceModal: {
     includes: 'What\'s included',
-    prices: 'Pricing',
-    book: 'Book this service',
+    quote: 'Custom quote',
+    quoteText: 'Final pricing depends on home size, condition, and the amount of work. We confirm a clear quote before we start.',
+    book: 'Get a quote',
     close: 'Close',
   },
   contact: {
@@ -227,7 +259,7 @@ export const t = {
   },
   footer: {
     navLabel: 'Navigation',
-    links: ['About', 'Services', 'Pricing', 'Areas', 'FAQ'] as [string, string, string, string, string],
+    links: ['About', 'Services', 'Packages', 'Areas', 'FAQ'] as [string, string, string, string, string],
     linkTargets: ['#about', '#services', '#prices', '#areas', '#faq'] as const,
     hours: 'Operating hours',
     hoursWeek: 'Mon–Fri: 8 am – 8 pm',
