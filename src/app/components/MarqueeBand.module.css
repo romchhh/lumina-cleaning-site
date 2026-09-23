@@ -25,10 +25,7 @@
 
 .spark {
   font-size: 14px;
-  background: var(--brand-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--brand-gold);
   animation: sparkPulse 2.4s ease-in-out infinite;
 }
 

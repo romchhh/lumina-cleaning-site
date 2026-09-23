@@ -77,7 +77,7 @@
   padding: 0 28px;
   border: none;
   border-radius: var(--radius-pill);
-  background: var(--accent-gradient);
+  background: var(--accent);
   color: #fff;
   font: inherit;
   font-size: var(--btn-font);
@@ -123,21 +123,11 @@
   overflow: hidden;
   background: var(--light-gray);
   box-shadow: var(--shadow-elevated);
+  border: 2px solid var(--accent);
 }
 
 .aboutMedia::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  border-radius: inherit;
-  padding: 2px;
-  background: var(--gradient-border);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask-composite: exclude;
-  -webkit-mask-composite: xor;
-  pointer-events: none;
-  opacity: 0.85;
+  content: none;
 }
 
 .aboutImage { object-fit: cover; }
@@ -146,7 +136,7 @@
   position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  background: linear-gradient(135deg, var(--accent-muted) 0%, var(--accent-soft) 100%);
+  background: var(--accent-muted);
   border: 1.5px solid var(--accent-border);
   box-shadow: var(--shadow-card);
 }
@@ -512,7 +502,7 @@
   padding: 0 20px;
   border: none;
   border-radius: var(--radius-pill);
-  background: var(--accent-gradient);
+  background: var(--accent);
   color: #fff;
   font: inherit;
   font-size: 13px;
@@ -536,7 +526,7 @@
   gap: 20px;
   padding: 28px 32px;
   border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-deep) 100%);
+  background: var(--accent);
   color: #fff;
 }
 
@@ -746,6 +736,51 @@
 .zipOk { color: var(--accent-deep); font-weight: 600; }
 .zipBad { color: #b42318; }
 
+@media (max-width: 768px) {
+  .areasTabs {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .areasTabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .areasTab {
+    padding: 10px 16px;
+    font-size: var(--text-sm);
+  }
+
+  .areasTags {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(3, auto);
+    grid-auto-columns: max-content;
+    justify-content: start;
+    align-content: start;
+    gap: 8px 10px;
+    max-width: none;
+    width: 100%;
+    margin: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 6px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .areasTags::-webkit-scrollbar {
+    display: none;
+  }
+
+  .areaTag {
+    white-space: nowrap;
+  }
+}
+
 /* reviews */
 .reviewsIntro {
   text-align: center;
@@ -771,7 +806,8 @@
 }
 
 .reviewsHeading em {
-  -webkit-text-fill-color: transparent;
+  color: var(--brand-gold);
+  -webkit-text-fill-color: var(--brand-gold);
 }
 
 .reviewsRow {
@@ -836,7 +872,7 @@
   min-width: 0;
 }
 
-.stars { display: flex; gap: 3px; color: var(--accent); }
+.stars { display: flex; gap: 3px; color: var(--brand-gold); }
 
 .reviewText {
   position: relative;
@@ -937,23 +973,23 @@
 }
 
 .stepBlue {
-  --step-color: #2563eb;
-  background: #2563eb;
-  border-color: #2563eb;
+  --step-color: #1d6ef5;
+  background: #1d6ef5;
+  border-color: #1d6ef5;
   color: #ffffff;
 }
 
 .stepGold {
-  --step-color: #c9a227;
-  background: #c9a227;
-  border-color: #c9a227;
+  --step-color: #f0c94a;
+  background: #f0c94a;
+  border-color: #f0c94a;
   color: #ffffff;
 }
 
 .stepGlow {
-  --step-color: #60a5fa;
-  background: #60a5fa;
-  border-color: #60a5fa;
+  --step-color: #5ba3ff;
+  background: #5ba3ff;
+  border-color: #5ba3ff;
   color: #ffffff;
 }
 
@@ -1079,22 +1115,13 @@
 }
 
 .faqOpen {
-  border-color: transparent;
+  border-color: var(--brand-gold);
   background: var(--white);
   box-shadow: var(--shadow-soft);
 }
 
 .faqOpen::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: var(--gradient-border);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask-composite: exclude;
-  -webkit-mask-composite: xor;
-  pointer-events: none;
+  content: none;
 }
 
 .faqQuestion {
@@ -1144,7 +1171,7 @@
   gap: 32px;
   padding: clamp(28px, 4vw, 40px);
   border-radius: var(--radius-xl);
-  background: var(--accent-gradient);
+  background: var(--accent);
   color: #fff;
   box-shadow: var(--shadow-glow);
   position: relative;
@@ -1152,13 +1179,7 @@
 }
 
 .ctaBannerInner::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 90% 20%, rgba(255,255,255,0.2), transparent 40%),
-    radial-gradient(circle at 10% 80%, rgba(255,255,255,0.1), transparent 35%);
-  pointer-events: none;
+  content: none;
 }
 
 .ctaBannerCopy,
