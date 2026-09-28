@@ -13,10 +13,12 @@ export function BrandName({ variant = 'header', className }: BrandNameProps) {
       <Image
         src="/logo.png"
         alt={BRAND.name}
-        width={variant === 'footer' ? 160 : 64}
-        height={variant === 'footer' ? 160 : 64}
+        width={256}
+        height={218}
+        sizes={variant === 'footer' ? '112px' : '(max-width: 480px) 44px, (max-width: 768px) 48px, 58px'}
         className={styles.logo}
         priority={variant === 'header'}
+        quality={85}
       />
     </span>
   )

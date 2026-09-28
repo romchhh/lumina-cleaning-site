@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from 'next'
 import { BRAND } from './brand'
 import { buildMetadata } from './lib/seo'
 import { SITE_NAME } from './lib/site'
+import MetaPixel from './components/MetaPixel'
+import MetaPixelPageView from './components/MetaPixelPageView'
 import './globals.css'
 import './lumina-clean.css'
 
@@ -45,7 +47,11 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="lumina-clean">{children}</body>
+      <body className="lumina-clean">
+        <MetaPixel />
+        <MetaPixelPageView />
+        {children}
+      </body>
     </html>
   )
 }

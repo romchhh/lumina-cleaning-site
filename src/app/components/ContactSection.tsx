@@ -6,6 +6,7 @@ import { useBooking } from '../booking'
 import { getServiceOptions, getServiceTitle, t } from '../copy'
 import { isZipServed, normalizeZip } from '../data/zipCodes'
 import { submitLead } from '../lib/lead'
+import { trackFormStartOnce, trackLead } from '../lib/metaPixel'
 import { SectionHeading } from './sections/SectionHeading'
 import styles from './ContactSection.module.css'
 
@@ -55,8 +56,15 @@ export default function ContactSection() {
       service: getServiceTitle(service),
       comment: form.comment.trim() || undefined,
     })
-    setStatus(ok ? 'success' : 'error')
+    if (ok) {
+      trackLead('contact')
+      setStatus('success')
+    } else {
+      setStatus('error')
+    }
   }
+
+  const handleFormStart = () => trackFormStartOnce('contact')
 
   const serviceOptions = getServiceOptions()
 
@@ -77,7 +85,9 @@ export default function ContactSection() {
               src={BRAND.contactImage}
               alt={t.contact.visualAlt}
               fill
+              loading="lazy"
               sizes="(max-width: 900px) 100vw, 48vw"
+              quality={75}
               className={styles.img}
             />
             <div className={styles.visualOverlay} aria-hidden="true" />
@@ -102,7 +112,12 @@ export default function ContactSection() {
                 <p>{t.contact.successText}</p>
               </div>
             ) : (
-              <form className={styles.form} onSubmit={handleSubmit}>
+              <form
+                className={styles.form}
+                onSubmit={handleSubmit}
+                onInput={handleFormStart}
+                onChange={handleFormStart}
+              >
                 <p className={styles.formTitle}>{t.contact.formTitle}</p>
                 <div className={styles.row}>
                   <div className={styles.field}>

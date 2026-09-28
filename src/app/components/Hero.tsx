@@ -14,7 +14,9 @@ export default function Hero() {
           alt=""
           fill
           priority
+          fetchPriority="high"
           sizes="100vw"
+          quality={75}
           className={styles.bgImage}
         />
       </div>

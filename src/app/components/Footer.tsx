@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { BRAND } from '../brand'
 import { t } from '../copy'
 import { BrandName } from './BrandName'
+import WhatsAppLink from './WhatsAppLink'
 import styles from './Footer.module.css'
 
 export default function Footer() {
@@ -31,7 +32,7 @@ export default function Footer() {
             <p>{BRAND.address}<br />{BRAND.city}</p>
             <a href={`tel:${BRAND.phoneTel}`}>{BRAND.phone}</a>
             <a href={`mailto:${BRAND.email}`}>{BRAND.email}</a>
-            <a href={BRAND.whatsapp} target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            <WhatsAppLink>WhatsApp</WhatsAppLink>
           </div>
 
           <div className={`${styles.col} ${styles.colPolicies}`}>

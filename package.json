@@ -6,10 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "optimize:logo": "node scripts/optimize-logo.mjs"
   },
   "dependencies": {
     "next": "14.2.3",
+    "sharp": "^0.33.5",
     "react": "^18",
     "react-dom": "^18"
   },

@@ -5,6 +5,7 @@ import { useEffect, useRef } from 'react'
 import { useBooking, scrollToBooking } from '../../booking'
 import { SERVICE_COPY, t } from '../../copy'
 import { getServiceById } from '../../data/siteContent'
+import { trackBookClick } from '../../lib/metaPixel'
 import styles from './ServiceModal.module.css'
 
 export default function ServiceModal() {
@@ -20,6 +21,7 @@ export default function ServiceModal() {
   if (!service || !copy) return null
 
   const handleBook = () => {
+    trackBookClick()
     closeServiceModal()
     scrollToBooking()
   }
@@ -37,7 +39,15 @@ export default function ServiceModal() {
       >
         <div className={styles.handle} aria-hidden="true" />
         <div className={styles.header}>
-          <Image src={service.image} alt="" fill sizes="640px" className={styles.headerImg} />
+          <Image
+            src={service.image}
+            alt=""
+            fill
+            loading="lazy"
+            sizes="(max-width: 640px) 100vw, 640px"
+            quality={75}
+            className={styles.headerImg}
+          />
           <div className={styles.headerOverlay} aria-hidden="true" />
           <button type="button" className={styles.closeBtn} onClick={closeServiceModal} aria-label={t.serviceModal.close}>
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">

@@ -4,6 +4,9 @@ export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://royalglowc
 
 export const SITE_NAME = BRAND.name
 
+/** Meta (Facebook) Pixel — used for ad attribution and PageView tracking */
+export const META_PIXEL_ID = '1457531026596195'
+
 export const DEFAULT_DESCRIPTION =
   'Professional residential cleaning in Monmouth, Ocean, Mercer & Burlington Counties, NJ. Standard, deep, move-in/out & laundry services. Book online or call for a free quote.'
 

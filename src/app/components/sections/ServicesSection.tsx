@@ -90,7 +90,9 @@ export default function ServicesSection() {
                       src={service.image}
                       alt={copy.title}
                       fill
+                      loading="lazy"
                       sizes="(max-width: 768px) 82vw, 360px"
+                      quality={75}
                       className={styles.serviceImage}
                     />
                   </div>

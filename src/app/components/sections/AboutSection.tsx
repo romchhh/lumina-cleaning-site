@@ -29,7 +29,9 @@ export default function AboutSection() {
               src={BRAND.aboutTeam}
               alt={t.about.teamImageAlt}
               fill
+              loading="lazy"
               sizes="(max-width: 1024px) 100vw, 420px"
+              quality={75}
               className={styles.aboutImage}
             />
           </div>

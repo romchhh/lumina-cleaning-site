@@ -1,3 +1,5 @@
+import { IMAGE_WIDTH, unsplashImage } from '../lib/images'
+
 export type ServiceTheme = 'dark' | 'photo' | 'photoAlt' | 'light'
 
 export type PriceTier = {
@@ -20,7 +22,7 @@ export const SERVICES: ServiceItem[] = [
   {
     id: 'standard',
     theme: 'photo',
-    image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=900&q=80',
+    image: unsplashImage('photo-1581578731548-c64695cc6952', IMAGE_WIDTH.serviceCard),
     priceFrom: 'from $120',
     tiers: [
       { label: '1 bed / 1 bath', price: 'from $120' },
@@ -44,7 +46,7 @@ export const SERVICES: ServiceItem[] = [
   {
     id: 'deep',
     theme: 'dark',
-    image: 'https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=900&q=80',
+    image: unsplashImage('photo-1563453392212-326f5e854473', IMAGE_WIDTH.serviceCard),
     priceFrom: 'from $200',
     tiers: [
       { label: '1 bed / 1 bath', price: 'from $200' },
@@ -67,7 +69,7 @@ export const SERVICES: ServiceItem[] = [
   {
     id: 'move',
     theme: 'photoAlt',
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80',
+    image: unsplashImage('photo-1600585154340-be6161a56a0c', IMAGE_WIDTH.serviceCard),
     priceFrom: 'from $220',
     tiers: [
       { label: '1 bed / 1 bath', price: 'from $220' },
@@ -90,7 +92,7 @@ export const SERVICES: ServiceItem[] = [
   {
     id: 'laundry',
     theme: 'light',
-    image: 'https://images.unsplash.com/photo-1556912173-46c336c7fd55?auto=format&fit=crop&w=900&q=80',
+    image: unsplashImage('photo-1556912173-46c336c7fd55', IMAGE_WIDTH.serviceCard),
     priceFrom: 'from $280',
     tiers: [
       { label: '2 bed / 1–2 bath', price: 'from $280' },
